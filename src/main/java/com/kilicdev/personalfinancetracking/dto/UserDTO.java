@@ -1,11 +1,9 @@
 package com.kilicdev.personalfinancetracking.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.kilicdev.personalfinancetracking.model.Transaction;
-import lombok.*;
+import lombok.Data;
 
 import java.util.List;
-
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
