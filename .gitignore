@@ -1,0 +1,24 @@
+# IntelliJ IDEA specific files
+/.idea/
+/*.iml
+/workspace.xml
+/tasks.xml
+/usage.statistics.xml
+/.idea_modules/
+/.idea/shelf/
+/.idea/workspace.xml
+/idea.log
+/.idea/*.xml
+/.idea/**/libraries
+/.idea/**/artifacts
+
+# Windows specific files
+Thumbs.db
+
+# Maven specific files
+/target/
+/pom.xml.tag
+/pom.xml.releaseBackup
+/pom.xml.versionsBackup
+/logs/
+/*.log
