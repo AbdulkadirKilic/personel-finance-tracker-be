@@ -13,10 +13,15 @@ import java.time.LocalDate;
 public class Transaction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+	@Column(name = "category")
 	private String category;
+	@Column(name = "amount")
 	private Double amount;
+	@Column(name = "date")
 	private LocalDate date;
+	@Column(name = "type")
 	@Enumerated(EnumType.STRING)
 	private TransactionType type;
 	@ManyToOne
