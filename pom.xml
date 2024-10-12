@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <groupId>com.kilicdev</groupId>
-    <artifactId>personal-finance-tracking-be</artifactId>
+    <artifactId>personal-finance-tracker-be</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>personal-finance-tracking</name>
     <description>This is a spring boot project created for personal financial tracking</description>
