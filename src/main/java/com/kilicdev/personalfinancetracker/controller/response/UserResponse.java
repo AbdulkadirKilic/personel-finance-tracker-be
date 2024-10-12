@@ -11,5 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserResponse extends BaseResponse {
-	private UserDTO userDTO;
+  private UserDTO userDTO;
 }

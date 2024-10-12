@@ -5,7 +5,9 @@ import com.kilicdev.personalfinancetracker.model.Transaction;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring")
+@Mapper(
+    componentModel = "spring",
+    uses = {UserMapper.class})
 public interface TransactionMapper {
   @Mapping(source = "user.id", target = "userId")
   TransactionDTO toDTO(Transaction transaction);

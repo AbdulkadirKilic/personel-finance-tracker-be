@@ -10,12 +10,15 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TransactionDTO {
   private Long id;
+  private Long version;
   private Long userId;
   private String category;
   private Double amount;
   private String description;
   private TransactionType type;
   private TransactionStatus status;
-  private LocalDateTime createDate;
+  private LocalDateTime createdDate;
   private String createdBy;
+  private LocalDateTime updatedDate;
+  private String updatedBy;
 }

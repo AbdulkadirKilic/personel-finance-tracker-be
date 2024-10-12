@@ -11,7 +11,7 @@
     <groupId>com.kilicdev</groupId>
     <artifactId>personal-finance-tracker-be</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>personal-finance-tracking</name>
+    <name>personal-finance-tracker</name>
     <description>This is a spring boot project created for personal financial tracking</description>
     <url/>
     <licenses>
@@ -70,6 +70,7 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>1.5.5.Final</version>
         </dependency>
+
 
     </dependencies>
 

@@ -20,8 +20,12 @@ public class User {
   @Column(name = "id")
   private Long id;
 
+  @Version
+  @Column(name = "version", nullable = false)
+  private Long version;
+
   @Column(name = "user_name", unique = true, nullable = false)
-  private String username;
+  private String userName;
 
   @Column(name = "first_name")
   private String firstName;
@@ -42,13 +46,19 @@ public class User {
   @Column(name = "role")
   private String role;
 
-  @Column(name = "create_date", nullable = false, updatable = false)
+  @Column(name = "created_date", nullable = false, updatable = false)
   @CreationTimestamp
-  private LocalDateTime createDate;
+  private LocalDateTime createdDate;
+
+  @Column(name = "created_by")
+  private String createdBy;
 
   @Column(name = "updated_date")
   @UpdateTimestamp
   private LocalDateTime updatedDate;
+
+  @Column(name = "updated_by")
+  private String updatedBy;
 
   @OneToMany(mappedBy = "user")
   private List<Transaction> transactions;

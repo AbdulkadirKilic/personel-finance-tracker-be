@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "transaction", schema = "finance")
@@ -19,8 +20,13 @@ public class Transaction {
       name = "seq_transaction",
       sequenceName = "finance.SEQ_TRANSACTION",
       allocationSize = 1)
+  @Id
   @Column(name = "id")
   private Long id;
+
+  @Version
+  @Column(name = "version", nullable = false)
+  private Long version;
 
   @ManyToOne
   @JoinColumn(name = "user_id")
@@ -43,10 +49,17 @@ public class Transaction {
   @Enumerated(EnumType.STRING)
   private TransactionStatus status;
 
-  @Column(name = "create_date", nullable = false, updatable = false)
+  @Column(name = "created_date", nullable = false, updatable = false)
   @CreationTimestamp
-  private LocalDateTime createDate;
+  private LocalDateTime createdDate;
 
   @Column(name = "created_by")
   private String createdBy;
+
+  @Column(name = "updated_date")
+  @UpdateTimestamp
+  private LocalDateTime updatedDate;
+
+  @Column(name = "updated_by")
+  private String updatedBy;
 }
