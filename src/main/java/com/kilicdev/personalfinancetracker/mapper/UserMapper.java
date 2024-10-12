@@ -11,9 +11,9 @@ import org.mapstruct.Mapping;
 public interface UserMapper {
   @Mapping(source = "transactions", target = "transactionDTOs")
   @Mapping(target = "password", ignore = true)
-  UserDTO UserToUserDto(User user);
+  UserDTO userToUserDto(User user);
 
   @Mapping(source = "transactionDTOs", target = "transactions")
   @Mapping(target = "password", ignore = true)
-  User UserDtoToUser(UserDTO userDTO);
+  User userDtoToUser(UserDTO userDTO);
 }

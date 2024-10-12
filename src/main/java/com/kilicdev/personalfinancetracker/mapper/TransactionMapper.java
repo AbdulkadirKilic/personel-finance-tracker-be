@@ -10,8 +10,8 @@ import org.mapstruct.Mapping;
     uses = {UserMapper.class})
 public interface TransactionMapper {
   @Mapping(source = "user.id", target = "userId")
-  TransactionDTO toDTO(Transaction transaction);
+  TransactionDTO transactionToTransactionDto(Transaction transaction);
 
   @Mapping(source = "userId", target = "user.id")
-  Transaction toEntity(TransactionDTO transactionDTO);
+  Transaction transactionDtoToTransaction(TransactionDTO transactionDTO);
 }

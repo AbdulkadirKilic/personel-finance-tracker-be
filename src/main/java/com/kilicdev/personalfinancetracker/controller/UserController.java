@@ -22,6 +22,6 @@ public class UserController {
   @GetMapping
   public List<UserDTO> getAllUsers() {
     List<User> userList = userRepository.findAll();
-    return userList.stream().map(userMapper::UserToUserDto).toList();
+    return userList.stream().map(userMapper::userToUserDto).toList();
   }
 }
