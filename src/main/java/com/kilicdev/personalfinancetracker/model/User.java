@@ -14,9 +14,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Getter
 @Setter
 public class User {
-  @Id
+
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user")
-  @SequenceGenerator(name = "seq_user", sequenceName = "finance.SEQ_USER", allocationSize = 1)
+  @SequenceGenerator(name = "seq_user", sequenceName = "finance.seq_user", allocationSize = 1)
+  @Id
   @Column(name = "id")
   private Long id;
 

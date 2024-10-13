@@ -18,7 +18,7 @@ public class Transaction {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_transaction")
   @SequenceGenerator(
       name = "seq_transaction",
-      sequenceName = "finance.SEQ_TRANSACTION",
+      sequenceName = "finance.seq_transaction",
       allocationSize = 1)
   @Id
   @Column(name = "id")
@@ -35,19 +35,19 @@ public class Transaction {
   @Column(name = "category")
   private String category;
 
-  @Column(name = "amount")
-  private Double amount;
-
-  @Column(name = "description")
-  private String description;
-
   @Column(name = "type")
   @Enumerated(EnumType.STRING)
   private TransactionType type;
 
+  @Column(name = "amount")
+  private Double amount;
+
   @Column(name = "status")
   @Enumerated(EnumType.STRING)
   private TransactionStatus status;
+
+  @Column(name = "description")
+  private String description;
 
   @Column(name = "created_date", nullable = false, updatable = false)
   @CreationTimestamp
