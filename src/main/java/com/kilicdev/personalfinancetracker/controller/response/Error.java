@@ -10,8 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Error {
-    private String errorCode;
-    private String errorDetails;
-    private String errorMessage;
-
+  private String errorCode;
+  private String errorDetails;
+  private String errorMessage;
 }
