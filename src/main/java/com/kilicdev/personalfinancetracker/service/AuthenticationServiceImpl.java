@@ -1,6 +1,7 @@
 package com.kilicdev.personalfinancetracker.service;
 
 import com.kilicdev.personalfinancetracker.controller.request.LoginRequest;
+import com.kilicdev.personalfinancetracker.enums.ErrorCode;
 import com.kilicdev.personalfinancetracker.exception.custom.InvalidCredentialsException;
 import com.kilicdev.personalfinancetracker.model.User;
 import com.kilicdev.personalfinancetracker.repository.UserRepository;
@@ -18,15 +19,14 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
     User user =
         userRepository
             .findByUserNameOrEmail(request.getUserNameOrEmail())
-            .orElseThrow(
-                () -> new InvalidCredentialsException("Username or password is incorrect"));
+            .orElseThrow(() -> new InvalidCredentialsException(ErrorCode.INVALID_CREDENTIALS));
 
     return validatePassword(request.getPassword(), user.getPassword());
   }
 
   private boolean validatePassword(String rawPassword, String encodedPassword) {
     if (!passwordEncoder.matches(rawPassword, encodedPassword)) {
-      throw new InvalidCredentialsException("Username or password is incorrect");
+      throw new InvalidCredentialsException(ErrorCode.INVALID_CREDENTIALS);
     }
     return true;
   }
