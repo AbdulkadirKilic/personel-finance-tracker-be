@@ -1,19 +1,18 @@
 package com.kilicdev.personalfinancetracker.mapper;
 
 import com.kilicdev.personalfinancetracker.dto.UserDTO;
+import com.kilicdev.personalfinancetracker.model.Role;
 import com.kilicdev.personalfinancetracker.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(
     componentModel = "spring",
-    uses = {TransactionMapper.class})
+    uses = {Role.class})
 public interface UserMapper {
-  @Mapping(source = "transactions", target = "transactionDTOs")
-  @Mapping(target = "password", ignore = true)
+  @Mapping(source = "role.id", target = "roleId")
   UserDTO userToUserDto(User user);
 
-  @Mapping(source = "transactionDTOs", target = "transactions")
-  @Mapping(target = "password", ignore = true)
+  @Mapping(source = "roleId", target = "role.id")
   User userDtoToUser(UserDTO userDTO);
 }

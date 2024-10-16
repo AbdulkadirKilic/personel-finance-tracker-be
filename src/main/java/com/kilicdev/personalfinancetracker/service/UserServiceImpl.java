@@ -32,9 +32,13 @@ public class UserServiceImpl implements IUserService {
   @Override
   public UserResponse registerUser(RegisterUserRequest registerUserRequest) {
     validateUserUniqueness(registerUserRequest.getUserName(), registerUserRequest.getEmail());
+    // todo Fetching the Role entity from the database
+
+    //    Role defaultRole = roleService.findByName("USER")
+    //            .orElseThrow(() -> new RuntimeException("Default role not found"));
 
     User user = new User();
-//    user.roleId(); todo default role will assign
+    //user.setRole();//todo default role will assign
     user.setUserName(registerUserRequest.getUserName());
     user.setFirstName(registerUserRequest.getFirstName());
     user.setLastName(registerUserRequest.getLastName());

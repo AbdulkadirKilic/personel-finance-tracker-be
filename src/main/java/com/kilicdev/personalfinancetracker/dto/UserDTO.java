@@ -3,7 +3,6 @@ package com.kilicdev.personalfinancetracker.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.kilicdev.personalfinancetracker.enums.user.UserStatus;
 import java.time.LocalDateTime;
-import java.util.List;
 import lombok.Data;
 
 @Data
@@ -16,11 +15,9 @@ public class UserDTO {
   private String firstName;
   private String lastName;
   private String email;
-  private String password;
   private UserStatus status;
   private LocalDateTime createdDate;
   private String createdBy;
   private LocalDateTime updatedDate;
   private String updatedBy;
-  private List<TransactionDTO> transactionDTOs;
 }
