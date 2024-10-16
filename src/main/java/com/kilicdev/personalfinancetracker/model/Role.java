@@ -3,6 +3,8 @@ package com.kilicdev.personalfinancetracker.model;
 import com.kilicdev.personalfinancetracker.enums.role.RoleStatus;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -47,4 +49,7 @@ public class Role {
 
   @Column(name = "updated_by")
   private String updatedBy;
+
+  @OneToMany(mappedBy = "role")
+  private List<User> users;
 }
