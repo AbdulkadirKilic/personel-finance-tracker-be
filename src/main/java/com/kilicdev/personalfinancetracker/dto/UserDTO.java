@@ -11,13 +11,13 @@ import lombok.Data;
 public class UserDTO {
   private Long id;
   private Long version;
+  private Long roleId;
   private String userName;
   private String firstName;
   private String lastName;
   private String email;
   private String password;
   private UserStatus status;
-  private String role;
   private LocalDateTime createdDate;
   private String createdBy;
   private LocalDateTime updatedDate;

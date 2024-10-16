@@ -25,6 +25,10 @@ public class User {
   @Column(name = "version", nullable = false)
   private Long version;
 
+  @ManyToOne
+  @JoinColumn(name = "role_id", nullable = false)
+  private Role role;
+
   @Column(name = "user_name", unique = true, nullable = false)
   private String userName;
 
@@ -43,9 +47,6 @@ public class User {
   @Column(name = "status")
   @Enumerated(EnumType.STRING)
   private UserStatus status;
-
-  @Column(name = "role")
-  private String role;
 
   @Column(name = "created_date", nullable = false, updatable = false)
   @CreationTimestamp
