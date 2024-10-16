@@ -13,8 +13,8 @@ CREATE TABLE finance.user (
     last_name VARCHAR(255),
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    status VARCHAR(50),
-    role VARCHAR(255),
+    status VARCHAR(20) DEFAULT 'ACTIVE',
+    role VARCHAR(20),
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     created_by VARCHAR(255),
     updated_date TIMESTAMP,
@@ -53,9 +53,14 @@ CREATE SEQUENCE finance.seq_role
 --ROLE TABLE
 CREATE TABLE finance.role (
     id BIGINT PRIMARY KEY DEFAULT nextval('finance.seq_role'),
-    role_name VARCHAR(255) UNIQUE NOT NULL,
+    version BIGINT NOT NULL,
+    name VARCHAR(20) UNIQUE NOT NULL,
+    description TEXT,
+    status VARCHAR(20) DEFAULT 'ACTIVE',
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    created_by VARCHAR(255)
+    created_by VARCHAR(255),
+    updated_date TIMESTAMP,
+    updated_by VARCHAR(255)
 );
 
 --TRANSACTION_HISTORY SEQUENCE
