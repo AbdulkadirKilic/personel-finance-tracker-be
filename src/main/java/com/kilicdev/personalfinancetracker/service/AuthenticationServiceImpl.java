@@ -18,7 +18,7 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
   public boolean authenticateUser(LoginRequest request) {
     User user =
         userRepository
-            .findByUserNameOrEmail(request.getUserNameOrEmail())
+            .findByUserNameOrEmail(request.getUserNameOrEmail(), request.getUserNameOrEmail())
             .orElseThrow(() -> new InvalidCredentialsException(ErrorCode.INVALID_CREDENTIALS));
 
     return validatePassword(request.getPassword(), user.getPassword());
