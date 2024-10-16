@@ -8,6 +8,7 @@ CREATE SEQUENCE finance.seq_user
 CREATE TABLE finance.user (
     id BIGINT PRIMARY KEY DEFAULT nextval('finance.seq_user'),
     version BIGINT NOT NULL,
+    role_id BIGINT NOT NULL,
     user_name VARCHAR(255) UNIQUE NOT NULL,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
@@ -20,6 +21,7 @@ CREATE TABLE finance.user (
     updated_date TIMESTAMP,
     updated_by VARCHAR(255),
     CONSTRAINT user_version_positive CHECK (version >= 0)
+    FOREIGN KEY (role_id) REFERENCES finance.role(id) ON DELETE CASCADE
 );
 
 -- TRANSACTION SEQUENCE
