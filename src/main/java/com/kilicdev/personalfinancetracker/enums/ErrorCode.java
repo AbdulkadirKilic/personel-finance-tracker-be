@@ -5,7 +5,8 @@ import lombok.Getter;
 @Getter
 public enum ErrorCode {
   INVALID_CREDENTIALS("401", "Unauthorized access", "Username or password is incorrect"),
-  USER_NOT_FOUND("404", "Not Found", "User not found");
+  USER_NOT_FOUND("404", "Not Found", "User not found"),
+  USER_ALREADY_EXISTS("409", "Conflict", "User already exists");
 
   private final String code;
   private final String title;

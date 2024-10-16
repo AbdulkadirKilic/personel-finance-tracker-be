@@ -4,6 +4,7 @@ import com.kilicdev.personalfinancetracker.controller.response.Error;
 import com.kilicdev.personalfinancetracker.controller.response.LoginResponse;
 import com.kilicdev.personalfinancetracker.enums.ErrorCode;
 import com.kilicdev.personalfinancetracker.exception.custom.InvalidCredentialsException;
+import com.kilicdev.personalfinancetracker.exception.custom.UserAlreadyExistsException;
 import com.kilicdev.personalfinancetracker.exception.custom.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +37,18 @@ public class GlobalExceptionHandler {
     response.setResult(false);
 
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+  }
+
+  @ExceptionHandler(UserAlreadyExistsException.class)
+  public ResponseEntity<LoginResponse> handleUserAlreadyExistsException(
+      UserAlreadyExistsException ex) {
+    LoginResponse response = new LoginResponse();
+    ErrorCode errorCode = ErrorCode.USER_ALREADY_EXISTS;
+
+    Error error = new Error(errorCode.getCode(), errorCode.getTitle(), errorCode.getMessage());
+    response.setError(error);
+    response.setResult(false);
+
+    return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
   }
 }
