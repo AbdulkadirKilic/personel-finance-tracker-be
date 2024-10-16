@@ -1,10 +1,12 @@
 package com.kilicdev.personalfinancetracker.model;
 
+import com.kilicdev.personalfinancetracker.enums.role.RoleStatus;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "role", schema = "finance")
@@ -18,8 +20,19 @@ public class Role {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "role_name", unique = true, nullable = false)
-  private String roleName;
+  @Version
+  @Column(name = "version", nullable = false)
+  private Long version;
+
+  @Column(name = "name", unique = true, nullable = false)
+  private String name;
+
+  @Column(name = "description", nullable = false)
+  private String description;
+
+  @Column(name = "status")
+  @Enumerated(EnumType.STRING)
+  private RoleStatus status;
 
   @Column(name = "created_date", nullable = false, updatable = false)
   @CreationTimestamp
@@ -27,4 +40,11 @@ public class Role {
 
   @Column(name = "created_by")
   private String createdBy;
+
+  @Column(name = "updated_date")
+  @UpdateTimestamp
+  private LocalDateTime updatedDate;
+
+  @Column(name = "updated_by")
+  private String updatedBy;
 }
